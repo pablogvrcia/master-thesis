@@ -1,7 +1,6 @@
-# INSTALL SAM 2
-import sys
-!{sys.executable} -m pip install opencv-python matplotlib
-!{sys.executable} -m pip install 'git+https://github.com/facebookresearch/segment-anything-2.git'
+#!/bin/bash
+!pip install opencv-python matplotlib
+!pip install 'git+https://github.com/facebookresearch/segment-anything-2.git'
 
 !mkdir -p images
 !wget -P images https://raw.githubusercontent.com/facebookresearch/segment-anything-2/main/notebooks/images/cars.jpg

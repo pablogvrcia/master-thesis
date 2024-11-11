@@ -2,7 +2,7 @@ import os
 import torch
 import torchvision
 from PIL import Image
-import clip
+import CLIP.clip as clip
 import numpy as np
 import matplotlib.pyplot as plt
 import google.generativeai as genai
@@ -184,10 +184,12 @@ def calculate_image_clip_embedding(image_path):
       A tensor of the CLIP embedding for the image.
     """
     image = Image.open(image_path)
+    
     image_array = preprocess(image).unsqueeze(0).to(device)
+    
     with torch.no_grad():
         image_features = clip_model.encode_image(image_array)
-    return image_features
+    return image_features, image_array
 
 
 def calculate_text_clip_embedding(text):
